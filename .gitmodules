@@ -1,0 +1,8 @@
+[submodule "whitelist"]
+	path = whitelist
+	url = https://github.com/zababurinsv/whitelist
+    branch = master
+[submodule "config"]
+	path = public/static/html/components/component_modules/config
+	url = https://github.com/zababurinsv/config
+    branch = master

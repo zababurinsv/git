@@ -1,0 +1,40 @@
+{
+  "name": "github",
+  "version": "1.0.0",
+  "description": "auth",
+  "main": "server.mjs",
+  "scripts": {
+    "github": "set NODE_ENV=development&&nodemon --experimental-modules --experimental-json-modules server.mjs",
+    "start": "set NODE_ENV=production&&node --experimental-modules server.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zababurinsv/github.git"
+  },
+  "keywords": [
+    "auth"
+  ],
+  "author": "Zababurin Sergey",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/zababurinsv/github/issues"
+  },
+  "homepage": "https://github.com/zababurinsv/github#readme",
+  "dependencies": {
+    "axios": "^0.19.1",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "enqueue": "^1.0.2",
+    "express": "^4.17.1",
+    "express-enqueue": "^1.0.0",
+    "express-formidable": "^1.2.0",
+    "is-empty": "^1.2.0",
+    "jimp": "^0.9.3",
+    "webdav": "^2.10.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "yargs": "^15.1.0"
+  }
+}

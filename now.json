@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "name": "authorization-atlassian",
+  "github": {
+    "enabled": true,
+    "autoAlias": true
+  },
+  "builds": [
+    { "src": "public/**", "use": "@now/static" },
+    { "src": "index.mjs", "use": "@now/node" }
+
+  ],
+  "routes": [
+    { "src": "/(.*)","dest": "/public/$1" },
+    { "src": "/(.*)", "dest": "index.mjs" }
+  ]
+}
