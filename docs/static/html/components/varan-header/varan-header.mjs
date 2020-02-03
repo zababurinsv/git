@@ -1,4 +1,3 @@
-import scroll from '/static/html/components/component_modules/scroll/scroll.mjs'
 customElements.define('varan-header',
     class extends HTMLElement {
       static get observedAttributes () {
