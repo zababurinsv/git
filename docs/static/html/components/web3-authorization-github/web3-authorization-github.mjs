@@ -715,16 +715,21 @@ customElements.define('web3-authorization-github',
 
           ConsoleLogHTML.connect(document.body.querySelector('#console'));
 
-          // console.debug = function(str0, str1 = '', str2 = '', str3 = '', str4 = '', str5 = ''){
-          //   let console =
-          //   console.insertAdjacentHTML('afterbegin', `${str0} --->>> ${JSON.stringify(str1)}`)
-          //   console.log('~~~~~~~>>>', str0, str1, str2,str3, str4,str5  )
-          // }
-          // let socket = new (await webSocket())['class']()
-         // let authtorization = new ()['class']()
+          if(localStorage.getItem("test") === '1'){
+            obj['this']['shadowRoot'].querySelector('#authtorization').innerHTML = 'Sing out'
+          }else{
+            obj['this']['shadowRoot'].querySelector('#authtorization').innerHTML = 'Sing in'
 
-          console.log(await Authtorization())
-
+          }
+          if(location.pathname === '/singIn'){
+            localStorage.setItem('test', 1);
+            obj['this']['shadowRoot'].querySelector('#authtorization').innerHTML = 'Sing out'
+            location.href = "http://localhost:5006/";
+          }
+          obj['this']['shadowRoot'].querySelector('#authtorization').addEventListener('click',async (event)=>{
+            location.href = "http://localhost:5006/auth/github";
+          })
+        // console.log(await Authtorization())
         // let auth = await Authtorization()
         // new auth['class']['namespace']({pid:'waves-auth'})
         // console.assert(false, auth)

@@ -55,16 +55,20 @@ githubOAuth.on('error', function(err) {
     console.error('there was a login error', err)
 })
 
-githubOAuth.on('token', function(token, serverResponse) {
+githubOAuth.on('token', function(token, res) {
     console.log('~~~~~~token~~~~~~~~~~~', token)
-    serverResponse.end(JSON.stringify(token))
+    res.redirect('http://localhost:5006/singIn')
 })
 
 app.use( express.static('docs'));
 app.use( express.static('static'));
+// app.options('/singIn', cors(corsOptions))
+// app.get('/singIn', async (req, res) => {
+//     res.redirect('http://localhost:5006/')
+// })
 app.options('/*', cors(corsOptions))
 app.get('/*', async (req, res) => {
-    res.sendFile('/public/index.html', { root: __dirname });
+    res.sendFile('/docs/index.html', { root: __dirname });
 })
 app.use(queue.getErrorMiddleware())
 export default app
