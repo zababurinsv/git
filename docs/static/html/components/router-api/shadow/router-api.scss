@@ -1,0 +1,135 @@
+@import "/home/sergey/Desktop/system/css/fonts_new.scss";
+@import "/home/sergey/Desktop/system/css/util/media_new.scss";
+@import "/home/sergey/Desktop/system/css/util/interface";
+
+@mixin label(){
+  @include display(column, nowrap, space-between, center, stretch);
+  input{
+    font-family: Roboto, serif;
+    @include fonts(6);
+    box-sizing: border-box;
+    width: 100%;
+    align-self: center;
+    box-shadow: inset 0vw 0vw 1vw 0px #7694f4;
+    border: .1vw solid #acb2b5;
+    margin-bottom: 1vw;
+    justify-content: center;
+  }
+  div.description{
+    position: relative;
+    width: 100%;
+    textarea{
+      resize:none;
+      width: 100%;
+      height: 12vw;
+      box-sizing: border-box;
+    }
+    span#symbol{
+      position: absolute;
+      top: -1.7vw;
+      right: 1vw;
+      opacity: 0.4;
+    }
+  }
+  button{
+    @include border();
+    font-family: Roboto, serif;
+    @include fonts(8);
+    margin: 1vw 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: inset 0vw 0vw 1vw 0px #7694f4;
+    box-sizing: border-box;
+    padding: 2vw;
+    text-align: center;
+    text-align: -webkit-center;
+    align-items: center;
+  }
+}
+
+@mixin p(){
+  @include border();
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: inset 0vw 0vw 1vw 0px #7694f4;
+  box-sizing: border-box;
+  padding: 2vw;
+  text-align: center;
+  font-family: Roboto, serif;
+  @include fonts(8);
+}
+
+@mixin border() {
+  //width: 100%;
+  box-shadow: inset 0vw 0vw 1vw 0px #7694f4;
+  box-sizing: border-box;
+  position: relative;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.5vw;
+}
+:host{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-grow: 1;
+}
+section#router-api{
+  @include display(row, nowrap, space-evenly, center, stretch);
+  padding: 1vw;
+  width: 100%;
+  div.router-api{
+    @include display(column, nowrap, flex-start, center, stretch);
+    box-sizing: border-box;
+    padding: 1vw;
+    width: 20vw;
+    padding-right: 0;
+    div.api{
+      @include display(column, nowrap, flex-start, center, stretch);
+      background-color: #4c6499de;
+      @include border();
+      align-self: center;
+      box-sizing: border-box;
+      padding: 1vw;
+      width: 100%;
+      margin-bottom: 1vw;
+      div.api-matcher{
+        width: 100%;
+        @include display(column, nowrap, flex-start, center, stretch);
+        label.api-matcher{
+          width: 100%;
+          font-family: Roboto, serif;
+          @include fonts(4);
+          position: relative;
+          text-align: left;
+          color: rgb(255, 255, 255);
+          margin-bottom: 1vw;
+          cursor: text;
+        }
+        input.api-matcher{
+          border: none;
+          min-height: 4vw;
+          @include border();
+          outline:none;
+          padding: 1vw;
+          margin-bottom: 0.5vw;
+          width: 100%;
+          font-family: Roboto, serif;
+          @include fonts(4);
+          cursor: pointer;
+          &:focus {
+            border-color: grey;
+            border-radius: 0.5vw;
+          }
+        }
+      }
+    }
+  }
+  div.router-api-wallet{
+    display: flex;
+    flex-grow: 1;
+  }
+}

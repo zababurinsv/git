@@ -74,6 +74,12 @@ app.post('/api/storage/delete/all', cors(corsOptions),async (req, res) => {
     res.json(out)
 })
 app.use("/api/v1", routes);
+
+app.options('/import', cors(corsOptions))
+app.get('/import', async (req, res) => {
+    res.sendFile('/docs/import.html', { root: __dirname });
+})
+
 app.get('/*', async (req, res) => {
     res.sendFile('/docs/index.html', { root: __dirname });
 })

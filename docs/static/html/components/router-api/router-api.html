@@ -1,0 +1,71 @@
+<template>
+<section id="router-api" style="display: none">
+    <div class="router-api">
+        <div class="api">
+            <div class="api-matcher">
+                <label class="api-matcher" for="api-set-order">
+                    /matcher/orderbook
+                </label>
+                <input class="api-matcher" id="api-set-order" type="button">
+            </div>
+            <div class="api-matcher">
+                <label class="api-matcher" for="api-get-order">
+                    /matcher/orderbook/{publicKey}
+                </label>
+                <input class="api-matcher" id="api-get-order" type="button">
+            </div>
+            <div class="api-matcher">
+                <label class="api-matcher" for="api-get-balance">
+                    /addresses/balance/{address}
+                </label>
+                <input class="api-matcher" id="api-get-balance" type="button">
+            </div>
+            <div class="api-matcher">
+                <label class="api-matcher" for="api-cancel-all">
+                    /matcher/orderbook/cancel
+                </label>
+                <input class="api-matcher" id="api-cancel-all" type="button">
+            </div>
+            <div class="api-matcher">
+                <label class="api-matcher" for="api-detail-asset">
+                    /assets/details/{assetId}
+                </label>
+                <input class="api-matcher" id="api-detail-asset" type="button">
+            </div>
+            <div class="api-matcher">
+                <label class="api-matcher" for="api-orderbook-set">
+                    /matcher/orderbook/set
+                </label>
+                <input class="api-matcher" id="api-orderbook-set" type="button">
+            </div>
+            <div class="api-matcher">
+                <label class="api-matcher" for="api-item-get">
+                    /storage/get/item
+                </label>
+                <input class="api-matcher" id="api-item-get" type="button">
+            </div>
+            <div class="api-matcher">
+                <label class="api-matcher" for="api-item-set">
+                    /storage/set/item
+                </label>
+                <input class="api-matcher" id="api-item-set" type="button">
+            </div>
+            <div class="api-matcher">
+                <label class="api-matcher" for="api-item-delete">
+                    /storage/delete/item
+                </label>
+                <input class="api-matcher" id="api-item-delete" type="button">
+            </div>
+            <div class="api-matcher">
+                <label class="api-matcher" for="api-item-update">
+                    /storage/delete/item
+                </label>
+                <input class="api-matcher" id="api-item-update" type="button">
+            </div>
+        </div>
+    </div>
+    <div  class="router-api-wallet">
+        <slot name="crypto-dex"></slot>
+    </div>
+</section>
+</template>
