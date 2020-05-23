@@ -1,12 +1,8 @@
 import isEmpty from '/static/html/components/component_modules/isEmpty/isEmpty.mjs'
 import description from '/static/html/components/component_modules/description/description.mjs'
 import colorlog from '/static/html/components/component_modules/colorLog/colorLog.mjs'
-import actions from '/static/html/components/component_modules/action/monopoly.mjs'
-import postoffice from '/static/html/components/component_modules/action/postOffice.mjs'
-import waves from '/static/html/components/component_modules/action/waves.mjs'
 import emoji from '/static/html/components/component_modules/emoji/emoji.mjs'
-import faucet from '/static/html/components/component_modules/action/faucet.mjs'
-import wavesGame from '/static/html/components/component_modules/action/wavesGame.mjs'
+
 let object = {}
 object.staticProperty = []
 let output = {}
