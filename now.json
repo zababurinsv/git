@@ -1,17 +1,17 @@
 {
-  "version": 2,
-  "name": "authorization-atlassian",
-  "github": {
-    "enabled": true,
-    "autoAlias": true
-  },
-  "builds": [
-    { "src": "public/**", "use": "@now/static" },
-    { "src": "index.mjs", "use": "@now/node" }
+    "version": 2,
+    "name": "server-org",
+    "github": {
+        "enabled": true,
+        "autoAlias": true
+    },
+    "builds": [
+        { "src": "/docs/**", "use": "@now/static" },
+        { "src": "index.js", "use": "@now/node" }
 
-  ],
-  "routes": [
-    { "src": "/(.*)","dest": "/public/$1" },
-    { "src": "/(.*)", "dest": "index.mjs" }
-  ]
+    ],
+    "routes": [
+        { "src": "/api/(.*)", "dest": "index.js" },
+        { "src": "/(.*)","dest": "/docs/$1" }
+    ]
 }

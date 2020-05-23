@@ -1,29 +1,29 @@
-import fs from "fs";
 import path from "path";
 let __dirname = path.dirname(process.argv[1]);
+import mongo from "./docs/static/html/components/component_modules/mongo/mongoose.js"
+import whitelist from './docs/static/html/components/component_modules/whitelist/whitelist.js'
 import express from "express";
 import cors from "cors";
 import Enqueue from "express-enqueue";
 import compression from "compression";
-import formidableMiddleware from "express-formidable";
-import {promisify} from "util";
-import dotenv from "dotenv"
-dotenv.config()
-const highWaterMark =  2;
-import whitelist from './whitelist/whitelist.mjs'
-import config from './config.mjs'
+import bodyParser from 'body-parser'
+import routes from './Routes/index.js'
+import config from './config.js'
 import github from "github-oauth";
+
 let app = express();
 app.use(compression())
-app.use(cors({ credentials: true }));
 const queue = new Enqueue({
     concurrentWorkers: 4,
     maxSize: 200,
     timeout: 30000
 });
+app.use(cors({ credentials: true }));
 app.use(queue.getMiddleware());
+app.use(bodyParser.json())
 let corsOptions = {
     origin: function (origin, callback) {
+        console.log('origin', origin)
         if (whitelist.indexOf(origin) !== -1) {
             callback(null, true)
         } else {
@@ -31,45 +31,51 @@ let corsOptions = {
         }
     }
 }
-
-app.use(formidableMiddleware());
+app.use( express.static('docs'));
+app.use( express.static('static'));
 
 var githubOAuth = github({
     githubClient: config.GITHUB_KEY,
     githubSecret: config.GITHUB_SECRET,
-    baseURL: 'http://localhost:' + '5006',
-    loginURI: '/auth/github',
-    callbackURI: '/auth/github/callback'
+    baseURL: 'http://localhost:' + '5122',
+    loginURI: '/api/auth/github',
+    callbackURI: '/api/auth/github/callback'
 })
 
-app.get("/auth/github", function(req, res){
+app.get("/api/auth/github", function(req, res){
     console.log("started oauth");
     return githubOAuth.login(req, res);
 });
 
-app.get("/auth/github/callback", function(req, res){
+app.get("/api/auth/github/callback", function(req, res){
     console.log("received callback");
     return githubOAuth.callback(req, res);
 });
+
 githubOAuth.on('error', function(err) {
     console.error('there was a login error', err)
 })
 
 githubOAuth.on('token', function(token, res) {
     console.log('~~~~~~token~~~~~~~~~~~', token)
-    res.redirect('http://localhost:5006/singIn')
+    res.status(200).json(token)
+    // res.redirect('http://localhost:5122/singIn')
 })
 
-app.use( express.static('docs'));
-app.use( express.static('static'));
-// app.options('/singIn', cors(corsOptions))
-// app.get('/singIn', async (req, res) => {
-//     res.redirect('http://localhost:5006/')
-// })
-app.options('/*', cors(corsOptions))
+
+app.options('/api/storage/set/item', cors(corsOptions))
+app.post('/api/storage/set/item', cors(corsOptions),async (req, res) => {
+    let out = await mongo(false,'a','5',  req.body, '/storage/set/item')
+    res.json(out)
+})
+app.options('/api/storage/delete/all', cors(corsOptions))
+app.post('/api/storage/delete/all', cors(corsOptions),async (req, res) => {
+    let out = await mongo(false,'dex','5',  req.body, '/storage/delete/all')
+    res.json(out)
+})
+app.use("/api/v1", routes);
 app.get('/*', async (req, res) => {
     res.sendFile('/docs/index.html', { root: __dirname });
 })
 app.use(queue.getErrorMiddleware())
 export default app
-

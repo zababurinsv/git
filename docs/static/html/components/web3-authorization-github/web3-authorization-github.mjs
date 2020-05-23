@@ -1,5 +1,4 @@
 import Authtorization from '/static/html/components/component_modules/authtorization/authtorization.mjs'
-import ConsoleLogHTML from '/static/html/components/component_modules/console/console.mjs'
 
 customElements.define('web3-authorization-github',
     class extends HTMLElement {
@@ -713,21 +712,18 @@ customElements.define('web3-authorization-github',
             })
         async function modules (obj) {
 
-          ConsoleLogHTML.connect(document.body.querySelector('#console'));
-
           if(localStorage.getItem("test") === '1'){
             obj['this']['shadowRoot'].querySelector('#authtorization').innerHTML = 'Sing out'
           }else{
             obj['this']['shadowRoot'].querySelector('#authtorization').innerHTML = 'Sing in'
-
           }
           if(location.pathname === '/singIn'){
             localStorage.setItem('test', 1);
             obj['this']['shadowRoot'].querySelector('#authtorization').innerHTML = 'Sing out'
-            location.href = "http://localhost:5006/";
+            location.href = "http://localhost:5122";
           }
           obj['this']['shadowRoot'].querySelector('#authtorization').addEventListener('click',async (event)=>{
-            location.href = "http://localhost:5006/auth/github";
+            location.href = "http://localhost:5122/api/auth/github";
           })
         // console.log(await Authtorization())
         // let auth = await Authtorization()

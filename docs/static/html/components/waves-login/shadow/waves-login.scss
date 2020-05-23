@@ -1,0 +1,277 @@
+@import "/home/sergey/Desktop/telegram/css/fonts_new.scss";
+@import "/home/sergey/Desktop/telegram/css/util/media_new.scss";
+@import "/home/sergey/Desktop/telegram/css/util/interface";
+
+@mixin label(){
+  @include display(column, nowrap, space-between, center, stretch);
+  input{
+    font-family: Roboto, serif;
+    @include fonts(6);
+    box-sizing: border-box;
+    width: 100%;
+    align-self: center;
+    box-shadow: inset 0vw 0vw 1vw 0px #7694f4;
+    border: .1vw solid #acb2b5;
+    margin-bottom: 1vw;
+    justify-content: center;
+  }
+  div.description{
+    position: relative;
+    width: 100%;
+    textarea{
+      resize:none;
+      width: 100%;
+      height: 12vw;
+      box-sizing: border-box;
+    }
+    span#symbol{
+      position: absolute;
+      top: -1.7vw;
+      right: 1vw;
+      opacity: 0.4;
+    }
+  }
+  button{
+    @include border();
+    font-family: Roboto, serif;
+    @include fonts(8);
+    margin: 1vw 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: inset 0vw 0vw 1vw 0px #7694f4;
+    box-sizing: border-box;
+    padding: 2vw;
+    text-align: center;
+    text-align: -webkit-center;
+    align-items: center;
+  }
+}
+
+@mixin p(){
+  @include border();
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: inset 0vw 0vw 1vw 0px #7694f4;
+  box-sizing: border-box;
+  padding: 2vw;
+  text-align: center;
+  font-family: Roboto, serif;
+  @include fonts(8);
+}
+
+@mixin border() {
+  //width: 100%;
+  box-shadow: inset 0vw 0vw 1vw 0px #7694f4;
+  box-sizing: border-box;
+  position: relative;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.5vw;
+}
+:host{
+  width: 100%;
+  margin: auto;
+}
+section#waves-login{
+  @include display(column, nowrap, flex-start, center, stretch);
+  padding: 1vw;
+  div.preview{
+    @include display(column, nowrap, flex-start, center, stretch);
+    background-color: #4c6499de;
+    @include border();
+    width: 50%;
+    align-self: center;
+    box-sizing: border-box;
+    padding: 1vw;
+    margin-bottom: 1vw;
+    h2.preview{
+      box-sizing: border-box;
+      text-align: center;
+      color: rgb(255, 255, 255);
+      font-family: Roboto, serif;
+      margin: 0;
+      @include fonts(8);
+    }
+    .preview-wrapper{
+      box-sizing: border-box;
+      display: flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      .preview-span{
+        box-sizing: border-box;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        font-family: Roboto, serif;
+        @include fonts(6);
+        .preview-a{
+          box-sizing: border-box;
+          display: inline;
+          color: #5aead6d1;
+          font-family: Roboto, serif;
+          @include fonts(8);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  div.form{
+    @include display(column, nowrap, flex-start, center, stretch);
+    background-color: #4c6499de;
+    @include border();
+    align-self: center;
+    box-sizing: border-box;
+    padding: 1vw;
+    width: 50%;
+    margin-bottom: 1vw;
+    div.form-password,div.form-confirm{
+      width: 100%;
+      @include display(column, nowrap, flex-start, center, stretch);
+      label[for="form-password"],label[for="form-confirm"]{
+        width: 100%;
+        font-family: Roboto, serif;
+        @include fonts(8);
+        position: relative;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        margin-bottom: 1vw;
+      }
+      input#form-password,input#form-confirm{
+        border: none;
+        min-height: 4vw;
+        @include border();
+        outline:none;
+        padding: 1vw;
+        margin-bottom: 0.5vw;
+        width: 100%;
+        font-family: Roboto, serif;
+        @include fonts(8);
+        &:focus {
+          border-color: grey;
+          border-radius: 0.5vw;
+        }
+      }
+      svg.form-password,svg.form-confirm{
+        width: 5vw;
+        position: absolute;
+        z-index: 55555;
+        color: #5aead6d1;
+        right: 2vw;
+        top: 4.8vw;
+      }
+      div.form-password-help{
+        align-self: flex-end;
+        font-family: Roboto, serif;
+        @include fonts(6);
+        color: rgb(255, 255, 255);
+        text-align: right;
+        margin-bottom: 2vw;
+      }
+      svg.form-confirm{
+        top: 18vw;
+      }
+    }
+  }
+  div.policy{
+    @include display(column, nowrap, flex-start, center, stretch);
+    background-color: #4c6499de;
+    @include border();
+    width: 50%;
+    align-self: center;
+    box-sizing: border-box;
+    padding: 1vw;
+    margin-bottom: 1vw;
+    div.policy-wrapper{
+      width: 100%;
+      @include display(column, nowrap, flex-start, center, stretch);
+      div.policy-privacy{
+        margin-bottom: 1vw;
+      }
+      div.policy-privacy, div.policy-terms{
+        @include display(row, nowrap, flex-start, center, stretch);
+        align-self: start;
+        box-sizing: border-box;
+        label[for="policy-privacy"], label[for="policy-terms"]{
+          @include display(row, nowrap, flex-start, center, stretch);
+          align-self: start;
+          box-sizing: border-box;
+          cursor: pointer;
+          position: relative;
+          div.policy-privacy-window,div.policy-terms-window {
+            width: 2vw;
+            height: 2vw;
+            @include border();
+            margin-right: 1vw;
+          }
+          input#policy-privacy:checked ~ svg.policy-privacy-svg{
+            width: 3vw;
+            display: flex;
+            position: absolute;
+            left: -0.5vw;
+            top: -0.5vw;
+            color: #5aead6d1;
+          }
+          input#policy-terms:checked ~ svg.policy-terms-svg{
+            width: 3vw;
+            display: flex;
+            position: absolute;
+            left: -0.5vw;
+            top: -0.5vw;
+            color: #5aead6d1;
+          }
+          span.policy-privacy-span, span.policy-terms-span{
+            font-family: Roboto, serif;
+            @include fonts(6);
+            color: rgb(255, 255, 255);
+          }
+        }
+        a.policy-privacy-href,a.policy-terms-href{
+          font-family: Roboto, serif;
+          @include fonts(6);
+          color: #5aead6d1;
+        }
+      }
+    }
+  }
+  div.login{
+    @include display(column, nowrap, flex-start, center, stretch);
+    background-color: #4c6499de;
+    @include border();
+    width: 50%;
+    align-self: center;
+    box-sizing: border-box;
+    padding: 1vw;
+    margin-bottom: 1vw;
+    div.login-wrapper{
+      width: 100%;
+      @include display(column, nowrap, flex-start, center, stretch);
+      button.login-button{
+        @include border();
+        @include fonts(8);
+        font-family: Roboto,serif;
+        border: none;
+        border-radius: 0.5vw;
+        margin-bottom: 1vw;
+        padding: 1vw;
+        width: 100%;
+        cursor: pointer;
+        background-color: white;
+      }
+      div.login-postview{
+        span.login-postview-span{
+          font-family: Roboto, serif;
+          @include fonts(6);
+          color: rgb(255, 255, 255);
+          a.login-postview-href{
+            font-family: Roboto, serif;
+            @include fonts(6);
+            color: #5aead6d1;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}

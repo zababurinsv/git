@@ -1,0 +1,38 @@
+.preloader{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  z-index: 999999;
+  transition: 1s All;
+  opacity: 1;
+  visibility: visible;
+  .loader{
+    width: 5vw;
+    height: 5vw;
+    border: 1vw solid #d9ca6b;
+    border-radius: 50%;
+    border-top-color: #81ca6a;
+    left: 50vw;
+    top:50vh;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    animation: 1s spin infinite linear;
+  }
+  &.done{
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes spin {
+  from{
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to{
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
