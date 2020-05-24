@@ -31,6 +31,7 @@
   "scripts": {
     "authorization-github": "nodemon --experimental-json-modules server.js",
     "gitHub": "git status && git add -A && git commit -am 'update' && git push",
+    "start": "node --experimental-modules server.js",
     "vercel": "vercel --prod",
     "gulp-watch-slyle": "gulp gulp-watch-slyle",
     "kill;5122": "kill $(lsof -t -i:5122)"
