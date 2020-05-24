@@ -720,10 +720,10 @@ customElements.define('web3-authorization-github',
           if(location.pathname === '/singIn'){
             localStorage.setItem('test', 1);
             obj['this']['shadowRoot'].querySelector('#authtorization').innerHTML = 'Sing out'
-            location.href = "http://localhost:5122";
+            location.href = "https://authtorization-github.herokuapp.com";
           }
           obj['this']['shadowRoot'].querySelector('#authtorization').addEventListener('click',async (event)=>{
-            location.href = "http://localhost:5122/api/auth/github";
+            location.href = "https://authtorization-github.herokuapp.com/api/auth/github";
           })
         // console.log(await Authtorization())
         // let auth = await Authtorization()
