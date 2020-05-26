@@ -36,7 +36,7 @@ app.use( express.static('docs'));
 var githubOAuth = github({
     githubClient: config.GITHUB_KEY,
     githubSecret: config.GITHUB_SECRET,
-    baseURL: 'http://localhost:' + '5122',
+    baseURL: 'https://authtorization-github.herokuapp.com',
     loginURI: '/api/auth/github',
     callbackURI: '/api/auth/github/callback'
 })
