@@ -23,7 +23,7 @@
     "enqueue": "^1.0.2",
     "express": "^4.17.1",
     "express-enqueue": "^1.0.0",
-    "mongoose": "5.9.15",
+    "mongoose": "5.9.16",
     "swagger-jsdoc": "^4.0.0",
     "swagger-ui-express": "^4.1.4",
     "github-oauth": "^0.2.2"

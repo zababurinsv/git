@@ -32,7 +32,6 @@ let corsOptions = {
     }
 }
 app.use( express.static('docs'));
-app.use( express.static('static'));
 
 var githubOAuth = github({
     githubClient: config.GITHUB_KEY,
@@ -59,7 +58,6 @@ githubOAuth.on('error', function(err) {
 githubOAuth.on('token', function(token, res) {
     console.log('~~~~~~token~~~~~~~~~~~', token)
     res.status(200).json(token)
-    // res.redirect('http://localhost:5122/singIn')
 })
 
 
