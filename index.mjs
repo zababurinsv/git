@@ -8,7 +8,7 @@ import Enqueue from "express-enqueue";
 import compression from "compression";
 import bodyParser from 'body-parser'
 import routes from './Routes/index.js'
-import config from './config.js'
+import config from './config.mjs'
 import github from "github-oauth";
 
 let app = express();
