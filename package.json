@@ -29,11 +29,12 @@
     "github-oauth": "^0.2.2"
   },
   "scripts": {
-    "authorization-github": "nodemon --experimental-json-modules server.js",
+    "authorization-github": "nodemon --experimental-json-modules server.mjs",
     "gitHub": "git status && git add -A && git commit -am 'update' && git push",
-    "start": "node --experimental-modules server.js",
+    "start": "node --experimental-modules server.mjs",
     "gulp-watch-slyle": "gulp gulp-watch-slyle",
-    "kill;5122": "kill $(lsof -t -i:5122)"
+    "heroku.logs": "heroku logs --tail --app authtorization-github",
+    "kill 5122": "kill $(lsof -t -i:5122)"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
