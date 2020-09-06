@@ -29,7 +29,7 @@
     "github-oauth": "^0.2.2"
   },
   "scripts": {
-    "authorization-github": "nodemon --experimental-json-modules server.mjs",
+    "dev": "nodemon --experimental-json-modules server.mjs",
     "gitHub": "git status && git add -A && git commit -am 'update' && git push",
     "start": "node --experimental-modules server.mjs",
     "gulp-watch-slyle": "gulp gulp-watch-slyle",
@@ -41,16 +41,6 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/register": "^7.9.0",
     "nodemon": "^2.0.4",
-    "yargs": "^15.3.1",
-    "del": "^5.1.0",
-    "gulp": "^4.0.2",
-    "gulp-cli": "^2.2.1",
-    "gulp-autoprefixer": "^7.0.1",
-    "gulp-babel": "^8.0.0",
-    "gulp-minify": "^3.1.0",
-    "gulp-sass": "^4.1.0",
-    "dotenv": "^8.2.0",
-    "node-sass": "^4.14.1",
-    "plugin-error": "^1.0.1"
+    "yargs": "^15.3.1"
   }
 }
